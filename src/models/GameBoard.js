@@ -30,6 +30,16 @@ export class GameBoard{
         return true;
     }
 
+    canPlaceShip(i,j,length){
+        for(let k=j;k<j+length;k++){
+            if(i<0||k<0||i>=10||k>=10||this._board[i][k].isHit()){
+                console.log(this._board[i][k].isHit());
+                return false;
+            }
+        }
+        return true;
+    }
+
     receiveAttack(i,j){
         this._board[i][j].hit=true;
 
